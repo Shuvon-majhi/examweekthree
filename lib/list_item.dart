@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:examweekthree/model_class.dart';
-import 'package:examweekthree/single_item.dart';
+import 'package:examweekthree/show_photo_details.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
