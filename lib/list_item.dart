@@ -12,6 +12,8 @@ class listItem extends StatefulWidget {
 }
 
 class _listItemState extends State<listItem> {
+
+  // Create a list to store api get data
   List<Product> productList = [];
   bool inProgress = false;
 
@@ -69,6 +71,7 @@ class _listItemState extends State<listItem> {
     );
   }
 
+  // fetch the data from API
   Future<void> _getDataFromApi() async {
     inProgress = true;
     setState(() {});
