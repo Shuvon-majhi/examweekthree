@@ -10,9 +10,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home : const listItem(), 
       theme: ThemeData(
-        elevatedButtonTheme: const ElevatedButtonThemeData(
-          
-        ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
