@@ -12,7 +12,6 @@ class listItem extends StatefulWidget {
 }
 
 class _listItemState extends State<listItem> {
-
   // Create a list to store api get data
   List<Product> productList = [];
   bool inProgress = false;
@@ -84,7 +83,7 @@ class _listItemState extends State<listItem> {
       for (var item in decodeResponse) {
         Product product = Product.fromJson(item);
         productList.add(product);
-        setState(() {});
+        //setState(() {});
       }
     }
     inProgress = false;
