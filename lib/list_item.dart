@@ -79,6 +79,7 @@ class _listItemState extends State<listItem> {
     Response response = await get(uri);
 
     if (response.statusCode == 200) {
+      productList.clear();
       var decodeResponse = jsonDecode(response.body);
       for (var item in decodeResponse) {
         Product product = Product.fromJson(item);
