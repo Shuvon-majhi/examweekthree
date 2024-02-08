@@ -14,7 +14,7 @@ class listItem extends StatefulWidget {
 class _listItemState extends State<listItem> {
   // Create a list to store api get data
   List<Product> productList = [];
-  bool inProgress = false;
+  bool _inProgress = false;
 
   @override
   void initState() {
@@ -29,7 +29,7 @@ class _listItemState extends State<listItem> {
         title: const Text('Photo Gallery App'),
       ),
       body: Visibility(
-        visible: inProgress == false,
+        visible: _inProgress == false,
         replacement: const Center(
           child: CircularProgressIndicator(),
         ),
@@ -45,22 +45,25 @@ class _listItemState extends State<listItem> {
 
   // fetch the data from API
   Future<void> _getDataFromApi() async {
-    inProgress = true;
+    _inProgress = true;
     setState(() {});
 
+    // Make url
     Uri uri = Uri.parse('https://jsonplaceholder.typicode.com/photos');
+
+    // api call
     Response response = await get(uri);
 
     if (response.statusCode == 200) {
       productList.clear();
+      // decode the data from response body
       var decodeResponse = jsonDecode(response.body);
       for (var item in decodeResponse) {
         Product product = Product.fromJson(item);
         productList.add(product);
-        //setState(() {});
       }
     }
-    inProgress = false;
+    _inProgress = false;
     setState(() {});
   }
 }
